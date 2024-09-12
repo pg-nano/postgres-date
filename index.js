@@ -229,15 +229,9 @@ class PGDateParser {
         }
         return jsDate;
     }
-    static parse(dateString) {
-        return new PGDateParser(dateString).getJSDate();
-    }
 }
-export default (function parseDate(isoDate) {
-    if (isoDate === null || isoDate === undefined) {
-        return null;
-    }
-    const date = PGDateParser.parse(isoDate);
+export default function parseDate(isoDate) {
+    const date = new PGDateParser(isoDate).getJSDate();
     // parsing failed, check for infinity
     if (date === null) {
         if (isoDate === 'infinity') {
@@ -248,4 +242,4 @@ export default (function parseDate(isoDate) {
         }
     }
     return date;
-});
+};

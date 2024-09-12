@@ -1,3 +1,2 @@
-declare function parseDate(isoDate: string): Date | number | null
-declare function parseDate(isoDate: null | undefined): null
+declare function parseDate(isoDate: string): Date | number
 export default parseDate
